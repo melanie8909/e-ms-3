@@ -1,0 +1,285 @@
+/*@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);*/
+@import url(notosanstc.css);
+@import url(heistd.css);
+body{
+  /* 先套用 Noto Sans TC 這個 思源黑體 */
+  font-family: 'hei7','Noto Sans TC', '微軟正黑體', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p,a{
+	color: #383838;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+}
+:root {
+	--white: #ffffff;
+	--ms3-gray: #BAAFAF;
+	--ms3-blue: #0E6EB8;
+	--ms3-border-lightblue: #3690CF;
+	--ms3-lightblue: #6BA8D1;
+	--ms3-green: #279C4F;
+	--ms3-red: #E62923;
+	--ms3-pink: #F47A7A;
+	--ms3-gradient-blue: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(221,242,250,1) 100%);
+}
+
+/* 高度%父層需有值 寬度vw 字尺寸vw 字相對單位em */
+
+.wrapper{
+	width: 100vw; /* 1920x1080px */
+	min-width: 1920px;
+	min-height: 1080px;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	display: flex;
+}
+
+/* 主要區 */
+.block-main{
+	width: 62.5vw; /* 1200px */
+}
+/* 標題列 */
+.block-main .box-title{
+	display: flex;
+	height: 8.0208333333vw; /* 154px */
+	background-color: #fff;
+	background: var(--ms3-gradient-blue);
+	align-items: center;
+	padding: 10px 0;
+}
+.box-title .box-logo{
+	width: 22.3958333333vw; /* 430px */
+	padding: 10px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--ms3-gray);
+}
+.box-title .box-txt{
+	width: 28.6458333333vw; /* 550px */
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--ms3-gray);
+}
+.box-title .box-txt p{
+	font-size: 3vw;
+	font-family: 'hei12';
+	color: var(--ms3-blue);
+	letter-spacing: .5vw;
+	transform: scaleY(1.2);
+}
+
+.box-title .box-time{
+	width: 11.4583333333vw; /* 220px */
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--ms3-gray);
+}
+.box-title .box-time p.date{
+	font-size: 1.5vw;
+	font-family: 'hei12';
+}
+.box-title .box-time p.time{
+	font-size: 3vw;
+	font-family: 'hei12';
+}
+/* 叫號列 */
+.box-frame{
+	height: 48.2291666667vw; /* 926px */
+}
+.box-frame iframe{
+	width: 100%;
+	height: 100%;
+}
+
+/* iframe內容的vh,vw會以box-frame尺寸為主 */
+.frame-content{
+	height: 77.1666666667vw; /* 926px÷1200px */
+	padding: 10px;
+	background-color: var(--ms3-gray);
+}
+.frame-content .card{
+	height: 18.25vw; /* 219px÷1200px */
+	border-radius: 5vw 5vw 5vw 5vw / 0.5vw 0.5vw 0.5vw 0.5vw;
+	box-shadow: 0 0 0 3px var(--ms3-border-lightblue);
+	margin-bottom: 10px;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+.frame-content .card .box-dept{
+	grid-area: 1 / 1 / 2 / 2; 
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+
+	padding: 5px;
+}
+.frame-content .card .box-dept p:nth-child(1){ grid-area: 1 / 1 / 3 / 2; }
+.frame-content .card .box-dept p:nth-child(2){ grid-area: 1 / 2 / 2 / 5; }
+.frame-content .card .box-dept p:nth-child(3){ grid-area: 2 / 2 / 3 / 5; }
+.frame-content .card .box-dept p{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	background-color: var(--ms3-blue);
+	border-radius: 0.5vw;
+	color: var(--white);
+}
+
+/* 診號 */
+.frame-content .card .box-dept p:nth-child(1){
+	flex-direction: column;
+	font-size: 6vw;
+	font-family: 'hei9';
+	letter-spacing: -0.2vw;
+}
+
+/* 醫師名 */
+.frame-content .card .box-dept p:nth-child(2){
+	font-size: 5vw;
+	font-family: 'hei9';
+	letter-spacing: .5vw;
+}
+
+/* 科別名 */
+.frame-content .card .box-dept p:nth-child(3){
+	font-size: 5vw;
+	font-family: 'hei9';
+	letter-spacing: .5vw;
+	background-color: var(--ms3-green);
+}
+
+
+.frame-content .card .box-num{
+	grid-area: 1 / 2 / 2 / 3; 
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+.frame-content .card .box-num .box-now{
+	grid-area: 1 / 1 / 2 / 2;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+
+	padding: 5px 0;
+}
+.frame-content .card .box-num .box-now p:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+.frame-content .card .box-num .box-now p:nth-child(2) { grid-area: 1 / 3 / 2 / 4; }
+.frame-content .card .box-num .box-now p:nth-child(3) { grid-area: 2 / 1 / 5 / 4; }
+.frame-content .card .box-num .box-now p{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5vw;
+	color: var(--white);
+	margin: 5px;
+}
+/* 目前號碼 */
+.frame-content .card .box-num .box-now p:nth-child(1){
+	background-color: var(--ms3-red);
+	font-family: 'hei7';
+	font-size: 2vw;
+	letter-spacing: .2vw;
+}
+/* 過號 */
+.frame-content .card .box-num .box-now p:nth-child(2){
+	background-color: var(--ms3-pink);
+	font-family: 'hei7';
+	font-size: 2vw;
+	letter-spacing: .2vw;
+}
+/* 目前號碼 顯示號 */
+.frame-content .card .box-num .box-now p:nth-child(3){
+	background-color: var(--white);
+	color: var(--ms3-red);
+	border: 3px solid var(--ms3-red);
+	font-family: 'hei12';
+	font-size: 10vw;
+}
+
+.frame-content .card .box-num .box-next{
+	grid-area: 1 / 2 / 2 / 3;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+
+	padding: 5px;
+}
+.frame-content .card .box-num .box-next p:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+.frame-content .card .box-num .box-next p:nth-child(2) { grid-area: 1 / 3 / 2 / 4; }
+.frame-content .card .box-num .box-next p:nth-child(3) { grid-area: 2 / 1 / 5 / 4; }
+.frame-content .card .box-num .box-next p{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5vw;
+	color: var(--white);
+	margin: 5px;
+}
+/* 下一號 */
+.frame-content .card .box-num .box-next p:nth-child(1){
+	background-color: var(--ms3-blue);
+	font-family: 'hei7';
+	font-size: 2vw;
+	letter-spacing: .2vw;
+}
+
+/* 順號 */
+.frame-content .card .box-num .box-next p:nth-child(2){
+	background-color: var(--ms3-lightblue);
+	font-family: 'hei7';
+	font-size: 2vw;
+	letter-spacing: .2vw;
+}
+/* 下一號 顯示號 */
+.frame-content .card .box-num .box-next p:nth-child(3){
+	background-color: var(--white);
+	color: var(--ms3-blue);
+	border: 3px solid var(--ms3-blue);
+	font-family: 'hei12';
+	font-size: 10vw;
+}
+
+
+
+/* 資訊區 */
+.block-info{
+	width: 37.5vw; /* 720px */
+	background-color: var(--white);
+	padding: 10px;
+}
+.block-info .box-content{
+	background-color: var(--ms3-gray);
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
